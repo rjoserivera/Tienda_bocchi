@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Kessoku | Instrumentos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../CSS/tienda.css">
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html" class="logo">Kessoku Band</a>
+        <a href="../index.html" style="color: #fff; text-decoration: none; font-weight: 500;">← Volver</a>
+    </nav>
+
+    <div class="shop-container">
+        <div class="shop-header">
+            <h1>Tienda de Instrumentitoz</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Comienza tu carrera musical al estilo Kessoku Band.</p>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <div class="loader">🎸 Cargando el catálogo desde la base de datos...</div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <div class="cart-toggle" onclick="toggleCart()">
+        🛒
+        <div class="cart-badge" id="cartCount">0</div>
+    </div>
+
+    <!-- Right Sidebar Cart -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <div class="close-cart" onclick="toggleCart()">×</div>
+        </div>
+        
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Items added here dynamically -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalValue">$0</span>
+            </div>
+            <button class="btn-buy" style="border-radius: 10px;" onclick="proceedToCheckout()">Proceder al Pago</button>
+        </div>
+    </div>
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="purchaseModal">
+        <div class="modal-box" style="position: relative;">
+            <div class="close-btn" onclick="closeModal()">×</div>
+            <h2>Completar Compra</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
+                Orden con <b id="selectedItemName">0</b> artículos. <br>Total: <b style="color:var(--primary-pink)" id="checkoutTotalValue">$0</b>
+            </p>
+            
+            <form id="purchaseForm">
+                
+                
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Hitori Gotoh">
+                </div>
+                
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="bocchi@kessoku.jp">
+                </div>
+                
+                <div class="form-group">
+                    <label>Dirección de Envío</label>
+                    <input type="text" id="direccion" name="direccion" required placeholder="Starry Club, Shimokitazawa">
+                </div>
+
+                <button type="submit" class="btn-submit">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../Js/tienda.js"></script>
+</body>
+</html>
